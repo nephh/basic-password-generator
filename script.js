@@ -32,15 +32,19 @@ function writePassword() {
     characters += symbols;
   }
   if (characters !== "") {
-    var length = prompt("How long would you like your password to be?");
+    var length = prompt("Enter a password length of 8-128");
   } else {
     alert("You must select at least one character type!");
   }
 
-  var password = generatePassword(length, characters);
-  var passwordText = document.querySelector("#password");
+  if (length > 128 || length < 8) {
+    alert("You must enter a number from 8-128!");
+  } else {
+    var password = generatePassword(length, characters);
+    var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+    passwordText.value = password;
+  }
 }
 
 // Add event listener to generate button
