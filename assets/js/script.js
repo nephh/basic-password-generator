@@ -1,6 +1,8 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+// Wrote generatePassword function, we are looping through our combined characters for whatever length the user chooses,
+// and using the charAt function to access each character that is selected by the math.random function. This creates our password
 function generatePassword(length, characters) {
   var password = "";
   for (i = 0; i < length; i++) {
@@ -12,13 +14,19 @@ function generatePassword(length, characters) {
 }
 
 // Write password to the #password input
+
+
 function writePassword() {
+  // These are our "pool" of characters we have to use. Depending on the options selected, these variables will be added to "characters" to be used 
+  // in the generatePassword function
   var lowercase = "abcdefghijklmnopqrstuvwxyz";
   var numbers = "0123456789";
   var symbols = "!@#$%^&*_-+=";
   var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
   var characters = "";
+
+  //Windows appear for all password options, and the password is then displayed in the #password element
   if (confirm("Would you like your password to include lowercase letters?")) {
     characters += lowercase;
   }
@@ -40,6 +48,7 @@ function writePassword() {
   if (length > 128 || length < 8) {
     alert("You must enter a number from 8-128!");
   } else {
+    // Generating password using length and characters selected by user
     var password = generatePassword(length, characters);
     var passwordText = document.querySelector("#password");
 
